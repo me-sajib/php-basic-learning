@@ -1,5 +1,10 @@
 <?php
 
+// constants
+define("DB", "localhost");
+define("arr",["a","b","c"]);
+
+
 // datatype check
 // string
 $str = 'Hello World';
@@ -16,7 +21,7 @@ $null = null;
 // resource
 $res = fopen('index.php', 'r');
 // undefined
-$undef = $undef;
+
 
     // decare variables
     $name = "sajib sarker";
