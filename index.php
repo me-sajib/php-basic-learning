@@ -1,5 +1,13 @@
 <?php
 
+// conditional statement
+$t = date("H");
+if($date < "20") {
+    echo "Have a good day!";
+} else {
+    echo "Have a good night!";
+}
+
 // operator precedence
 // arithmetic operators 
 //  + = addition, - = subtraction, * = multiplication, / = division, % = modulus
@@ -17,8 +25,8 @@
 // conditional operator
 //  ? = if, : = else, ?: = ternary operator, ?? = null coalesce operator
 // constants
-define("DB", "localhost");
-define("arr",["a","b","c"]);
+// define("DB", "localhost");
+// define("arr",["a","b","c"]);
 
 
 // datatype check
