@@ -1,5 +1,40 @@
 <?php
 
+// loops
+// for loop
+$nums = 2;
+// for($i =1; $i <=10; $i++){
+//     echo "2 X ".$i." =".$nums*$i."<br>";
+// }
+
+// while loop
+$i = 1;
+// while($i <=10){
+//     echo "2 X ".$i." =".$nums*$i."<br>";
+//     $i++;
+// }
+
+// do while loop
+// do{
+//     echo "2 X ".$i." =".$nums*$i."<br>";
+//     $i++;
+// }while($i <=10);
+
+// $teams = ["Liverpool", "Chelsea", "Arsenal", "Manchester United", "Manchester City"];
+// $teams = ["Dhaka"=> "Bangladesh", "London"=> "England", "New York"=> "USA", "Sydney"=> "Australia"];
+$teams = ["Gaibandha"=> ["nodi"=>"bil", "road"=> "park"], "Palshabari"=>"upozila"];
+foreach ($teams as $key => $value) {
+    if(is_array($value)){
+        foreach ($value as $key1 => $value1) {
+            echo $key." ".$key1." ".$value1."<br>";
+        }
+    }else{
+
+        echo $key." ".$value."<br>";
+    }
+}
+
+// switch statement
 $color = "red";
 
 switch ($color) {
