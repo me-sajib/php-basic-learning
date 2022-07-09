@@ -1,5 +1,21 @@
 <?php
 
+// operator precedence
+// arithmetic operators 
+//  + = addition, - = subtraction, * = multiplication, / = division, % = modulus
+//  ++ = increment, -- = decrement
+
+// comparison operators
+//  == = equal to, != = not equal to, <> = not equal to, > = greater than, < = less than, >= = greater than or equal to, <= = less than or equal to 
+
+// logical operator
+//  && = and, || = or, ! = not, and, or, xor = true but not both true
+
+// concatenation operator
+//  . = concatenate, .= = concatenate and assign
+
+// conditional operator
+//  ? = if, : = else, ?: = ternary operator, ?? = null coalesce operator
 // constants
 define("DB", "localhost");
 define("arr",["a","b","c"]);
