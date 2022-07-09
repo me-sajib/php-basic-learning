@@ -1,12 +1,26 @@
 <?php
 
-// conditional statement
-$t = date("H");
-if($date < "20") {
-    echo "Have a good day!";
-} else {
-    echo "Have a good night!";
+$color = "red";
+
+switch ($color) {
+    case 'red':
+        echo "Red is the color of fire";
+        break;
+    case "blue":
+        echo "Blue is the color of the sky";
+        break;
+    default:
+        echo "I don't know that color";
+        break;
 }
+
+// conditional statement
+// $t = date("H");
+// if($date < "20") {
+//     echo "Have a good day!";
+// } else {
+//     echo "Have a good night!";
+// }
 
 // operator precedence
 // arithmetic operators 
