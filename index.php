@@ -1,4 +1,24 @@
+<html>
+<head> <title>Index</title> </head>
+<body>
+    <h1>Request global variables</h1>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    Name: <input type="text" name="fname" />
+    <input type="submit"/>
+</form>
+
+
 <?php
+// $_REQUEST METHOD
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+   
+    $name =htmlspecialchars( $_POST["fname"]);
+    if(empty($name)){
+        echo "Name is empty";
+    }else{
+        echo "Name is $name";
+    }
+}
 // super global variables
 // $_SERVER - server variables
 // echo $_SERVER['PHP_SELF']; //SHOW THE PATH OF THE CURRENT PAGE
@@ -141,3 +161,6 @@ $res = fopen('index.php', 'r');
     const AGE = "20";
     $age = 33;
     echo $name, $age, AGE;
+    ?>
+</body>
+</html>
