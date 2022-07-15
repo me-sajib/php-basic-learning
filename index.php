@@ -1,5 +1,18 @@
 <?php
-
+// array
+//multidimensional array
+// $cars = array(
+//     array("Volvo",22,18),
+//     array("BMW",15,13),
+//     array("Saab",5,2),
+//     array("Land Rover",17,15)
+// );
+// for ($i=0; $i < 4; $i++) { 
+//     for ($j=0; $j < 3; $j++) { 
+//         echo $cars[$i][$j];
+//         echo " <br/>";
+//     }
+// }
 // loops
 // for loop
 $nums = 2;
@@ -22,17 +35,17 @@ $i = 1;
 
 // $teams = ["Liverpool", "Chelsea", "Arsenal", "Manchester United", "Manchester City"];
 // $teams = ["Dhaka"=> "Bangladesh", "London"=> "England", "New York"=> "USA", "Sydney"=> "Australia"];
-$teams = ["Gaibandha"=> ["nodi"=>"bil", "road"=> "park"], "Palshabari"=>"upozila"];
-foreach ($teams as $key => $value) {
-    if(is_array($value)){
-        foreach ($value as $key1 => $value1) {
-            echo $key." ".$key1." ".$value1."<br>";
-        }
-    }else{
+// $teams = ["Gaibandha"=> ["nodi"=>"bil", "road"=> "park"], "Palshabari"=>"upozila"];
+// foreach ($teams as $key => $value) {
+//     if(is_array($value)){
+//         foreach ($value as $key1 => $value1) {
+//             echo $key." ".$key1." ".$value1."<br>";
+//         }
+//     }else{
 
-        echo $key." ".$value."<br>";
-    }
-}
+//         echo $key." ".$value."<br>";
+//     }
+// }
 
 // switch statement
 $color = "red";
