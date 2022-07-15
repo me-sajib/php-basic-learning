@@ -1,10 +1,20 @@
 <?php
-// function
-function hello($name = "jack", $age = 22){
-    echo "$name is $age years old.";
+// super global variables
+// $GLOBALS
+$a = 2;
+$b = 3;
+function addition(){
+    echo $GLOBALS['x'] = $GLOBALS['a'] + $GLOBALS['b'];
 }
-hello("John", 55);
-hello();
+addition();
+echo $x;
+// function
+// basic function
+// function hello($name = "jack", $age = 22){
+//     echo "$name is $age years old.";
+// }
+// hello("John", 55);
+// hello();
 echo "<br>";
 // array
 //multidimensional array
