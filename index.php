@@ -1,13 +1,22 @@
 <?php
 // super global variables
+// $_SERVER - server variables
+// echo $_SERVER['PHP_SELF']; //SHOW THE PATH OF THE CURRENT PAGE
+// echo $_SERVER['SERVER_NAME']; //SHOW THE SERVER NAME = localhost
+// echo $_SERVER['REQUEST_METHOD']; //SHOW THE REQUEST METHOD = GET
+// echo $_SERVER['HTTP_HOST']; //SHOW THE HTTP HOST = localhost
+// echo $_SERVER['HTTP_USER_AGENT']; //SHOW THE USER AGENT = Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+// echo $_SERVER['SCRIPT_NAME']; //SHOW THE SCRIPT NAME = /index.php
+
+
 // $GLOBALS
-$a = 2;
-$b = 3;
-function addition(){
-    echo $GLOBALS['x'] = $GLOBALS['a'] + $GLOBALS['b'];
-}
-addition();
-echo $x;
+// $a = 2;
+// $b = 3;
+// function addition(){
+//     echo $GLOBALS['x'] = $GLOBALS['a'] + $GLOBALS['b'];
+// }
+// addition();
+// echo $x;
 // function
 // basic function
 // function hello($name = "jack", $age = 22){
