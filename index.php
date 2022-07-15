@@ -1,4 +1,11 @@
 <?php
+// function
+function hello($name = "jack", $age = 22){
+    echo "$name is $age years old.";
+}
+hello("John", 55);
+hello();
+echo "<br>";
 // array
 //multidimensional array
 // $cars = array(
