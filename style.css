@@ -1,3 +1,7 @@
 body {
   font-family: "Edu TAS Beginner", cursive;
 }
+.width-container {
+  width: 80%;
+  margin: 0 auto;
+}
