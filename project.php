@@ -27,7 +27,7 @@
 
         <!-- form fill up -->
         <div class="my-4">
-          <form>
+          <form method="post" action="submitForm.php">
             <div class="mb-3">
               <label for="name" class="form-label">Full Name</label>
               <input
@@ -66,7 +66,7 @@
               <label for="phone" class="form-label">Phone Number</label>
               <input
                 type="number"
-                max="14"
+                maxlength="14"
                 class="form-control"
                 id="phone"
                 name="number"
