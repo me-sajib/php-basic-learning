@@ -169,3 +169,15 @@ echo "<br>";
 
 // }
 // $bye = new Byes();
+
+// static properties
+
+// class Pi{
+//     public static $pi = 3.14;
+//     public function __construct()
+//     {
+//         echo self::$pi;
+//     }
+// }
+// $p = new Pi();
+// echo Pi::$pi;
