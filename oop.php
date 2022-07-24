@@ -126,28 +126,46 @@ $goodbye->bye();
 // $car = new Details; 
 // $car->set_name();
 
-trait carname{
-    public function get_name(){
-        echo "this is volvo car";
-    }
-}
-trait carname1{
-    public function get_namea(){
-        echo "this is volvo car 1";
-    }
-}
+// trait carname{
+//     public function get_name(){
+//         echo "this is volvo car";
+//     }
+// }
+// trait carname1{
+//     public function get_namea(){
+//         echo "this is volvo car 1";
+//     }
+// }
 
-class Bestcar{
-    use carname;
-}
+// class Bestcar{
+//     use carname;
+// }
 
-class Car{
-    use carname, carname1;
-}
+// class Car{
+//     use carname, carname1;
+// }
 
-$obj = new Bestcar();
-$obj->get_name();
+// $obj = new Bestcar();
+// $obj->get_name();
 
-$objj = new Car();
-$objj->get_name();
-$objj->get_namea();
+// $objj = new Car();
+// $objj->get_name();
+// $objj->get_namea();
+echo "<br>";
+// static method
+// class greeting{
+//     protected static function say_hello(){
+//         echo "hello";
+//     }
+// }
+// class Byes extends greeting{
+//     public static function say_bye(){
+//         echo "bye";
+//     }
+//     public function __construct()
+//     {
+//         parent::say_hello();
+//     }
+
+// }
+// $bye = new Byes();
