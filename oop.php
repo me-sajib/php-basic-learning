@@ -19,3 +19,20 @@ class Person{
 
 $persons = new Person("John", 22);
 $persons->get_details();
+
+
+// destructor method mean automatically run function
+class Fruit{
+    public $name;
+
+    public function __construct($name){
+        $this->name = $name;
+    }
+
+    public function __destruct()
+    {
+        echo "Fruit ".$this->name." is destroyed";
+    }
+}
+
+$ff = new Fruit("Apple");
