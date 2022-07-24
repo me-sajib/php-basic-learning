@@ -98,16 +98,30 @@ $goodbye->bye();
 
 // abstract classes with argument
 
-abstract class Car{
-    abstract public function name($name);
+// abstract class Car{
+//     abstract public function name($name);
+// }
+
+// class Intro extends Car{
+//     public function name($name){
+//         echo "Car ".$name."<br>";
+//     }
+
+// }
+
+// $cars = new Intro();
+// $cars->name("Volvo");
+
+interface Car{
+    public function set_name();
 }
 
-class Intro extends Car{
-    public function name($name){
-        echo "Car ".$name."<br>";
+class Details implements Car{
+    public function set_name()
+    {
+        echo "this is volvo car";
     }
-
 }
 
-$cars = new Intro();
-$cars->name("Volvo");
+$car = new Details;
+$car->set_name();
