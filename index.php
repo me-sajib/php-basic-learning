@@ -20,6 +20,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 }
 
+// exception
+function devide($a, $b){
+    if($b == 0){
+        throw new exception("Division by zero");
+    }
+    return $a/$b;
+}
+try{
+    echo devide(10, 0);
+}catch(Exception $e){
+    echo "Error: ".$e->getMessage();
+}
 // php json
 // $ages = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
 // $json = json_encode($ages);
