@@ -61,3 +61,15 @@ class Mango extends Fruit{
 }
 
 $man = new Mango("mango", "red");
+
+// constance
+
+class bye{
+    const LEAVE_MESSAGE = "good bye and see you soon dear..";
+    public function bye(){
+        echo self::LEAVE_MESSAGE;
+    }
+}
+
+$goodbye = new bye();
+$goodbye->bye();
