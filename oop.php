@@ -4,10 +4,12 @@ class Person{
     public $name;
     public $age;
 
-    public function set_details($name, $age) : void{
+    public function __construct($name, $age){
         $this->name = $name;
         $this->age = $age;
     }
+
+   
 
     public function get_details() :void {
         echo "Name: ".$this->name."<br>";
@@ -15,6 +17,5 @@ class Person{
     }
 }
 
-$persons = new Person();
-$persons->set_details("John", 22);
+$persons = new Person("John", 22);
 $persons->get_details();
