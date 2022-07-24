@@ -19,6 +19,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "Name is $name";
     }
 }
+
+// php json
+// $ages = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+// $json = json_encode($ages);
+// $djson = json_decode($json);
+// var_dump($djson);
 // super global variables
 // $_SERVER - server variables
 // echo $_SERVER['PHP_SELF']; //SHOW THE PATH OF THE CURRENT PAGE
