@@ -112,16 +112,42 @@ $goodbye->bye();
 // $cars = new Intro();
 // $cars->name("Volvo");
 
-interface Car{
-    public function set_name();
-}
+// interface Car{
+//     public function set_name();
+// }
 
-class Details implements Car{
-    public function set_name()
-    {
+// class Details implements Car{
+//     public function set_name()
+//     {
+//         echo "this is volvo car";
+//     }
+// }
+
+// $car = new Details; 
+// $car->set_name();
+
+trait carname{
+    public function get_name(){
         echo "this is volvo car";
     }
 }
+trait carname1{
+    public function get_namea(){
+        echo "this is volvo car 1";
+    }
+}
 
-$car = new Details;
-$car->set_name();
+class Bestcar{
+    use carname;
+}
+
+class Car{
+    use carname, carname1;
+}
+
+$obj = new Bestcar();
+$obj->get_name();
+
+$objj = new Car();
+$objj->get_name();
+$objj->get_namea();
