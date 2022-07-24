@@ -1,15 +1,23 @@
 <?php
 // oop class
 
+// iterable keyword
+function printIterable():iterable{
+    return ['a', 'b', 'c'];
+}
+$myIt = printIterable();
+foreach($myIt as $value){
+        echo $value . '<br>';
+    }
 // namespace Html;
-use Html\Table as T;
-include 'Html.php';
+// use Html\Table as T;
+// include 'Html.php';
 
-$table = new T();
-$table->cell = '11';
-$table->row = '14';
+// $table = new T();
+// $table->cell = '11';
+// $table->row = '14';
 
-$table->message();
+// $table->message();
 // class Person{
 //     public $name;
 //     public $age;
