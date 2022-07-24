@@ -1,24 +1,34 @@
 <?php
 // oop class
-class Person{
-    public $name;
-    public $age;
 
-    public function __construct($name, $age){
-        $this->name = $name;
-        $this->age = $age;
-    }
+// namespace Html;
+use Html\Table as T;
+include 'Html.php';
+
+$table = new T();
+$table->cell = '11';
+$table->row = '14';
+
+$table->message();
+// class Person{
+//     public $name;
+//     public $age;
+
+//     public function __construct($name, $age){
+//         $this->name = $name;
+//         $this->age = $age;
+//     }
 
    
 
-    public function get_details() :void {
-        echo "Name: ".$this->name."<br>";
-        echo "Age: ".$this->age."<br>";
-    }
-}
+//     public function get_details() :void {
+//         echo "Name: ".$this->name."<br>";
+//         echo "Age: ".$this->age."<br>";
+//     }
+// }
 
-$persons = new Person("John", 22);
-$persons->get_details();
+// $persons = new Person("John", 22);
+// $persons->get_details();
 
 
 // destructor method mean automatically run function
