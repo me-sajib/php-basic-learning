@@ -22,17 +22,42 @@ $persons->get_details();
 
 
 // destructor method mean automatically run function
+// class Fruit{
+//     public $name;
+
+//     public function __construct($name){
+//         $this->name = $name;
+//     }
+
+//     public function __destruct()
+//     {
+//         echo "Fruit ".$this->name." is destroyed";
+//     }
+// }
+
+// $ff = new Fruit("Apple");
+
+// inheritance 
 class Fruit{
     public $name;
+    public $color;
 
-    public function __construct($name){
+    public function __construct($name, $color){
         $this->name = $name;
+        $this->color = $color;
     }
-
-    public function __destruct()
-    {
-        echo "Fruit ".$this->name." is destroyed";
+    
+    protected function intro(){
+        echo "Fruit ".$this->name." is ".$this->color."<br>";
     }
 }
 
-$ff = new Fruit("Apple");
+class Mango extends Fruit{
+    public function __construct($name, $color)
+    {
+     parent::__construct($name, $color);
+     $this->intro();   
+    }
+}
+
+$man = new Mango("mango", "red");
