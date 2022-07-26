@@ -9,10 +9,18 @@ if(mysqli_connect_errno()){
     echo "Success: Connected to database.";
 }
 
-// $sql = "select * from my_guests";
-$sql = "update my_guests set name='sajib sarker' where id=1";
-$result = $db->query($sql);
+$sql = "select name from my_guests";
+// $sql = "update my_guests set name='sajib sarker' where id=1";
+// $result = $db->query($sql);
 
+// prepare statement 
+$stmt = $db->prepare($sql);
+
+$stmt->execute();
+$stmt->bind_result($name);
+while ($stmt->fetch()) {
+    echo $name . "<br>";
+}
 // while ($row = $result->fetch_object()) {
 //     echo $row->email."<br>";
 
