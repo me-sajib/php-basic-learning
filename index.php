@@ -3,7 +3,8 @@
 <body>
     <h1>Request global variables</h1>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    Name: <input type="text" name="fname" />
+    Name: <input type="text" name="fname" /><br>
+    Age : <input type="number" name="age">
     <input type="submit"/>
 </form>
 
@@ -13,10 +14,17 @@
 if($_SERVER["REQUEST_METHOD"] == "POST"){
    
     $name =htmlspecialchars( $_POST["fname"]);
+    $age = htmlspecialchars($_POST['age']);
     if(empty($name)){
         echo "Name is empty";
     }else{
         echo "Name is $name";
+    }
+
+    if(empty($age)){
+        echo "Age is required";
+    }else{
+        echo "her age is $age";
     }
 }
 
@@ -171,7 +179,6 @@ $null = null;
 // resource
 $res = fopen('index.php', 'r');
 // undefined
-
 
     // decare variables
     $name = "sajib sarker";
