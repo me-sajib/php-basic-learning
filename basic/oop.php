@@ -27,23 +27,41 @@
 
 // interface implement
 
-interface School{
-    public function schoolName($name):void;
-    public function address($address);
+// interface School{
+//     public function schoolName($name):void;
+//     public function address($address);
+// }
+
+// class Schools implements School{
+//     public function schoolName($name):void{
+//         echo "school name is ". $name;
+//     }
+
+//     public function address($address){
+//         echo "his school address is ".$address;
+//     }
+// }
+
+// abstract 
+
+abstract class School{
+    abstract function name($name):void;
+    abstract function address($address):void;
+    public function student($std):void{
+        echo "total student is ".$std;
+    }
 }
 
-class Schools implements School{
-    public function schoolName($name):void{
-        echo "school name is ". $name;
+class Schools extends School{
+    public function name($name):void{
+        echo "his school name ".$name;
     }
 
-    public function address($address){
+    public function address($address):void{
         echo "his school address is ".$address;
     }
 }
 
-
-
 $result = new Schools();
-echo $result->schoolName("rangpur");
+echo $result->name("rangpur");
 echo $result->address("Rangpur");
