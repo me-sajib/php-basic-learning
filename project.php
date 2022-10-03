@@ -37,6 +37,7 @@
                 name="uname"
                 placeholder="Enter your full name"
               />
+              <?php echo $nameErr;?>
             </div>
 
             <div class="mb-3">
