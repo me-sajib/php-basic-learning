@@ -1,45 +1,60 @@
 <?php
-// require_once("config.php");
 
+$dsn = "mysql:dbname=hotels;host=127.0.0.1";
+$user = "root";
+$password = "";
 
-// class User{
-    
-//     public function addUser($tbl, $name, $email, $password){
-//         $con = new Connection();
-//        $dbs = $con->db_connect();
-//         $sql = "INSERT INTO ".$tbl." (name, email, password) VALUES ('$name', '$email', '$password')";
-//         $conn = $dbs->prepare($sql);
-//     }
-// }
-
-// $res = new User();
-// $res->addUser("users", "sajib", "sajib@gmail.com", "23423");
-
-$db = new mysqli("localhost", "root", "", "hotels");
-if(mysqli_connect_error()){
-    echo "connection error";
-}else{
-    // echo "connection successfully";
+try {
+    $pdo = new PDO($dsn, $user, $password);
+} catch (PDOException $e) {
+    echo "database connection fail".$e->getMessage();
 }
 
-// $sql = "select name, email from users order by id";
-// $stmt = $db->prepare($sql);
-// $stmt->execute();
-// $stmt->bind_result($name, $email);
-
-// while($stmt->fetch()){
-//     echo "$name <br/> $email";
+// select all data
+// $sql = "select * from users";
+// $result = $pdo->query($sql);
+// foreach($result as $value){
+//     echo $value['name']."<br/>";
 // }
 
-$sql = "INSERT INTO users (id, name, email, number, gender, comment) VALUES (?,?,?,?,?,?)";
-
-$stmt = $db->prepare($sql);
-$stmt->bind_param("ississ",$id, $name,$email, $number, $gender,$comment);
-$id = 3;
-$name = "raju mia";
-$email = "raju@seo.com";
-$number = "0182922922";
+//data inserted sql 
+// bindValue mean its bindValue(:id, "3") like that, or bindParam(:id, $id) like that
+$id = "2";
+$name = "golap max";
+$email = "golap@max.com";
+$number = "01833282838";
 $gender = "male";
-$comment = "noting to be comment on me";
-$stmt->execute();
-$stmt->close();
+$comment = "good to see you and our profile ui are so good";
+
+// $sql = "INSERT INTO users ( id, name, email, number, gender, comment) VALUES ( ?, ?, ?, ?, ?,?)";
+// $stmt = $pdo->prepare($sql);
+// $stmt->bindParam(":id", $id);
+// $stmt->bindParam(":name", $name);
+// $stmt->bindParam(":email", $email);
+// $stmt->bindParam(":number", $number);
+// $stmt->bindParam(":gender", $gender);
+// $stmt->bindParam(":comment", $comment);
+// $arr = array($id, $name, $email, $number, $gender, $comment);
+// $stmt->execute($arr);
+
+// $sql = "SELECT * FROM users WHERE  gender=:gender";
+// $stmt = $pdo->prepare($sql);
+// // $stmt->bindParam(":id", $id);
+// $stmt->bindParam(":gender", $gender);
+// // $stmt->execute(array(":id"=> $id));
+// $stmt->execute();
+// while ($result = $stmt->fetch()) {
+//     echo $result["name"]."<br>";
+//     echo $result['email']."<br/>";
+// }
+
+
+// $sql = "UPDATE users SET email=?, name=? WHERE id=?";
+// $stmt = $pdo->prepare($sql);
+// $stmt->execute(array($email, $name, $id));
+
+
+// $sql = "DELETE FROM users WHERE id=:id";
+// $stmt = $pdo->prepare($sql);
+// $stmt->bindParam(":id", $id);
+// $stmt->execute();
