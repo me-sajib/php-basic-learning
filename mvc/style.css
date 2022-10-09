@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  padding: 10px 3px;
+  border-radius: 6px;
+  border: 2px solid lightgray;
+  color: black;
+  margin: 5px 10px;
+  width: 300px;
+}
+
+textarea {
+  padding: 10px 3px;
+  border-radius: 6px;
+  border: 2px solid lightgray;
+  color: black;
+  margin: 5px 10px;
+  width: 300px;
+}
+.horizontal-line {
+  width: 1px;
+  height: 100%;
+  background: lightseagreen;
+  margin: 0 40px;
+}
+
+table,
+thead,
+th,
+tr,
+td {
+  border: 1px solid mediumvioletred;
+  border-collapse: collapse;
+  padding: 10px 18px;
+}
+form {
+  margin: 0 auto;
+  width: 50%;
+}
