@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.container {
+  width: 80%;
+  margin: 50px auto;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link ul {
+  display: flex;
+}
+
+.nav-link ul li {
+  list-style: none;
+  margin-right: 34px;
+}
+
+.nav-link ul li a {
+  text-decoration: none;
+  color: #3a3a3a;
+}
