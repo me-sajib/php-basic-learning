@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logic registration</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
   </head>
   <body>
     <header>
@@ -20,13 +21,11 @@
               <li><a href="">Home</a></li>
               <li><a href="">Profile</a></li>
               <li><a href="">User</a></li>
-              <li><a href="">Sign up</a></li>
-              <li><a href="">Login</a></li>
+              <li><a href="registration.php">Sign up</a></li>
+              <li><a href="index.php">Login</a></li>
             </ul>
           </div>
         </div>
         <!-- end of navigation code below -->
       </nav>
     </header>
-  </body>
-</html>

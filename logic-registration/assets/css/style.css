@@ -25,3 +25,15 @@
   text-decoration: none;
   color: #3a3a3a;
 }
+
+header,
+footer {
+  background: #6c32a7;
+  color: white;
+  padding: 10px 0;
+}
+
+.login-form-section {
+  width: 40%;
+  margin: 0 auto;
+}
