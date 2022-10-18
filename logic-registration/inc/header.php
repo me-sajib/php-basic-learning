@@ -1,3 +1,9 @@
+<?php
+// $path = realpath(dirname(__FILE__));
+// include_once $path."/../lib/Session.php";
+// Session::init();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
