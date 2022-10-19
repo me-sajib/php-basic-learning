@@ -1,13 +1,15 @@
 <?php
 include "inc/header.php";
-include "lib/User.php";
+require_once "lib/User.php";
 
-$user = new User();
+$user = new User(); 
+// check already login or not
+Session::alreadyLogin("login");
 ?>
 
     <section class="login-form-section">
       <div class="container">
-        <h1 class="login-title">Login Form</h1>
+        <h1 class="login-title">Registration Now</h1>
         <?php
         if($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['registration'])){
          $registrationUser =  $user->userRegistration($_POST);

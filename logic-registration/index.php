@@ -1,14 +1,14 @@
 <?php
 include "inc/header.php";
-include "lib/User.php";
-$path = realpath(dirname(__FILE__));
-include_once $path."/lib/Session.php";
-Session::init();
+require_once "lib/User.php";
+// $path = realpath(dirname(__FILE__));
+// require_once $path."/lib/Session.php";
+
+
+// Session::init();
 $user = new User();
-$names = Session::get("user");
-if(isset($names)){
-  echo $names;
-}
+// check already user login or not
+// Session::alreadyLogin("login");
 ?>
 
 

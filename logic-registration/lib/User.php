@@ -1,6 +1,6 @@
 <?php
-include ("Connection.php");
-include ("Session.php");
+require_once ("Connection.php");
+require_once ("Session.php");
 
 class User{
     private $db;
@@ -102,10 +102,73 @@ class User{
     if($result){
         Session::init();
         Session::set("login", "true");  
+        Session::set("id", $result->id);
         Session::set("user", $result->name);
+        header("Location: allUser.php");
     }else{
         $err = "<div class='alert alert-danger'>Password is wrong</div>"; 
-return $err;
+        return $err;
     }
+
+    }
+
+
+    public function getAllUser(){
+        $query = "SELECT * FROM user";
+        $sql = $this->db::$pdo->prepare($query);
+        $sql->execute();
+        return $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getUserById($id){
+        $query = "SELECT * FROM user WHERE id=:id";
+        $sql = $this->db::$pdo->prepare($query);
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+        $result = $sql->fetch();  
+        return $result;
+    }
+
+    public function updateUser($ids, $data){
+        $id = $ids;
+        $name = $data['name'];
+        $email =$data['email'];
+        $skill = $data['skill'];
+
+        if ($name == "" OR $email == "" OR $skill == "" ) {
+            $errMsg = "<div class='alert alert-danger'>Error! <strong>Field Must Not Be Empty</strong></div>";
+            return $errMsg;
+        }
+
+
+        if (strlen($name) < 4) {
+            $errMsg = "<div class='alert alert-danger'>Error! <strong>Name Must Be more then 4 character</strong></div>";
+            return $errMsg;
+        }
+
+        if (preg_match('/[^a-z0-9_-]+/i',$name)) {
+            $errMsg = "<div class='alert alert-danger'>Error! <strong>Name just alphabet or underscore character</strong></div>";
+            return $errMsg;
+        }
+
+        if (filter_var($email,FILTER_VALIDATE_EMAIL) == false) {
+            $errMsg = "<div class='alert alert-danger'>Error! <strong>Please Enter Your Valid Email Address</strong></div>";
+            return $errMsg;
+        }elseif (filter_var($email,FILTER_SANITIZE_EMAIL) == false) {
+            $errMsg = "<div class='alert alert-danger'>Error! <strong>Please Enter Your Valid a Email Address</strong></div>";
+            return $errMsg;
+        }
+        //end of validation
+
+        $query = "UPDATE user SET name= :name, email= :email, skills= :skills WHERE id=:id";
+        $sql = $this->db::$pdo->prepare($query);
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":email", $email);
+        $sql->bindValue(":skills", $skill);
+        $sql->bindValue(":id", $id);
+        $result = $sql->execute();
+        if($result){
+            header("location:allUser.php?data=update");
+        }
     }
 }

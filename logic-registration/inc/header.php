@@ -1,7 +1,8 @@
 <?php
-// $path = realpath(dirname(__FILE__));
-// include_once $path."/../lib/Session.php";
-// Session::init();
+
+$path = realpath(dirname(__FILE__));
+include_once $path."/../lib/Session.php";
+Session::init();
 ?>
 
 <!DOCTYPE html>
@@ -22,13 +23,27 @@
           <div class="logo">
             <h1>Demo Website</h1>
           </div>
+          <?php
+          if(isset($_GET['action']) && $_GET['action'] == "logout"){
+            Session::destory();
+          }
+          ?>
           <div class="nav-link">
             <ul>
-              <li><a href="">Home</a></li>
-              <li><a href="">Profile</a></li>
-              <li><a href="">User</a></li>
+              <?php 
+              if(Session::get("login") == true){?>
+
+<li><a href="allUser.php">Home</a></li>
+<li><a href="profile.php?id=<?php echo Session::get('id');?>">Profile</a></li>
+
+<li><a href="?action=logout">Logout</a></li>
+              <?php }else{
+              ?>
+              
               <li><a href="registration.php">Sign up</a></li>
               <li><a href="index.php">Login</a></li>
+
+              <?php } ?>
             </ul>
           </div>
         </div>
