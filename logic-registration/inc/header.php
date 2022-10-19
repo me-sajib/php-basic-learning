@@ -33,10 +33,10 @@ Session::init();
               <?php 
               if(Session::get("login") == true){?>
 
-<li><a href="allUser.php">Home</a></li>
-<li><a href="profile.php?id=<?php echo Session::get('id');?>">Profile</a></li>
+              <li><a href="allUser.php">Home</a></li>
+              <li><a href="profile.php?id=<?php echo Session::get('id');?>">Profile</a></li>
 
-<li><a href="?action=logout">Logout</a></li>
+              <li><a href="?action=logout">Logout</a></li>
               <?php }else{
               ?>
               
