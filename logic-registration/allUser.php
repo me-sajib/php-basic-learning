@@ -14,11 +14,21 @@ $allData = $user->getAllUser();
 
 ?>
 
+<?php
+if(isset($_GET['action']) && $_GET['action'] == "delete"){
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+       $deleteData =  $user->deleteUser($id);
+    }
+}
+?>
+
 <h1 class="text-center mt-3"><b>Welcome </b><?php echo Session::get("user"); ?></h1>
 <?php 
 if(isset($_GET['data']) && $_GET["data"] == "update"){
     echo "<div class='w-25 container alert alert-success'><b>Update!</b> Data Updated Successfully</div>";
 }
+
 ?>
 <table class="table table-bordered" style="width:800px;margin:50px auto">
 
@@ -43,7 +53,12 @@ if(isset($_GET['data']) && $_GET["data"] == "update"){
             <td><?php echo $data['skills'];?></td>
             <td>
                 <a href="profile.php?id=<?php echo $data['id'];?>" class="btn btn-warning">view</a>
-                <a href="?delete=true&id=<?php echo $data['id'];?>" class="btn btn-danger">delete</a>
+               <?php 
+               if($data['id'] == Session::get("id")){
+?>
+                   <a href="?action=delete&id=<?php echo $data['id'];?>" class="btn btn-danger">delete</a>
+<?php               }
+               ?>
             </td>
             </tr>
         <?php    }

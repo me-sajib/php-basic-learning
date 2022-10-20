@@ -1,4 +1,4 @@
-<?php
+d<?php
 require_once ("Connection.php");
 require_once ("Session.php");
 
@@ -169,6 +169,17 @@ class User{
         $result = $sql->execute();
         if($result){
             header("location:allUser.php?data=update");
+        }
+    }
+
+    public function deleteUser($id){
+        
+        $query = "DELETE FROM user WHERE id = :id";
+        $sql = $this->db::$pdo->prepare($query);
+        $sql->bindValue(":id", $id);
+        $result = $sql->execute();
+        if($result){
+            header("Location:allUser.php?result=deleted");
         }
     }
 }
