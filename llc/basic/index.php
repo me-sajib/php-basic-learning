@@ -1,3 +1,31 @@
+<?php
+    $connection = mysqli_connect("localhost", "root", "", "llc");
+
+    $errors = [];
+
+    if(isset($_POST['login'])){
+
+      $email = $_POST['email'];
+      $pwd = $_POST['password'];
+
+      if(empty($email) || empty($pwd)){
+        $errors['empty-data'] = "Please enter a valid email and password";
+        return;
+      }
+
+      if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        $errors['invalid-email'] = "Please enter your valid email";
+        return;
+      }
+
+      $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$pwd'";
+      $data = mysqli_query($connection, $sql);
+      print_r($data->fetch_all());
+      
+
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +38,16 @@
 <body>
     <div class="container my-5" style="width:600px">
         <h2 class="text-center">Login Now</h2>
-        <form action="" method="post" enctype="multipart/form-data">
+        <?php
+        if(isset($errors['empty-data'])){
+          echo $errors["empty-data"];
+        }
+
+        if(isset($errors['invalid-email'])){
+          echo $errors['invalid-email'];
+        }
+        ?>
+        <form action="" method="post">
            
               <!-- email -->
             <div class="mb-3">
@@ -22,16 +59,11 @@
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1">
               </div>
-              <input type="file" name="photo" id="" class="form-control">
-              <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+             
+              <button type="submit" name="login" class="btn btn-primary">Submit</button>
         </form>
         <span>Don't have any account ? <a href="signup.php">Sign-up Now</a></span>
     </div>
-    <?php
-    if(isset($_POST['email'])){
-      echo $_FILES['photo']['name'];
-      var_dump($_FILES);
-    }
-    ?>
+   
 </body>
 </html>
