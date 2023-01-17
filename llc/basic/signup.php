@@ -1,6 +1,6 @@
 <?php
 
-// database connectoin set
+// database connection set
 $connection = mysqli_connect("localhost", "root", "", "llc");
 
 $errors = [];
@@ -23,6 +23,14 @@ if(isset($_POST['register'])){
         $errors['password'] = "You must enter a password";
     }
 
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        $errors['email'] = "Please enter your valid email";
+    }
+
+    if(strlen($password) < 6){
+        $errors['password'] = "Password more then 6 chars.";
+    }
+
     // now insert database
     if(empty($errors)){
         // profile photo insert
@@ -30,15 +38,14 @@ if(isset($_POST['register'])){
             $file_data = explode(".", $photo['name']);
             $file_ext = end($file_data);
             $new_file_name = uniqid("pp_", true). ".".$file_ext;
-           $upload =  move_uploaded_file($photo['tmp_name'], 'photo/'. $new_file_name);
-
+            $upload =  move_uploaded_file($photo['tmp_name'], 'photo/'. $new_file_name);
+            
            if($upload){
             $sql = "INSERT INTO users (name, email, profile_photo, password) VALUES ('$name', '$email', '$new_file_name', '$password')";
-            
             $insert = mysqli_query($connection, $sql);
-              
+            
             if($insert){
-                $success = "Wow ! Registration Successfull";
+                $success = "Wow ! Registration Successful";
               }
            }
         }
