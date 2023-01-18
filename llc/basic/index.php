@@ -18,12 +18,19 @@
         return;
       }
 
-      $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$pwd'";
-      $data = mysqli_query($connection, $sql);
-      print_r($data->fetch_all());
-      
+      $query = "SELECT id, password FROM `users` WHERE `email` = '$email'";
+      $result = mysqli_query($connection, $query);
 
+      $data = $result->fetch_assoc();
+
+      if(mysqli_num_rows($result) === 1){
+        if(password_verify($pwd, $data['password'])){
+          header("location:user.php");
+        }
+      }
     }
+
+
     ?>
 
 <!DOCTYPE html>
@@ -34,6 +41,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crud</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+   
 </head>
 <body>
     <div class="container my-5" style="width:600px">
@@ -64,6 +72,7 @@
         </form>
         <span>Don't have any account ? <a href="signup.php">Sign-up Now</a></span>
     </div>
+
    
 </body>
 </html>
