@@ -2,7 +2,10 @@
 
 // database connection set
 $connection = mysqli_connect("localhost", "root", "", "llc");
-
+if($connection === false){
+    echo mysqli_connect_error();
+    exit();
+}
 $errors = [];
 if(isset($_POST['register'])){
     $name = trim($_POST['name']);
@@ -31,6 +34,8 @@ if(isset($_POST['register'])){
         $errors['password'] = "Password more then 6 chars.";
     }
 
+    $hashPassword = password_hash($password, PASSWORD_BCRYPT);
+
     // now insert database
     if(empty($errors)){
         // profile photo insert
@@ -41,7 +46,7 @@ if(isset($_POST['register'])){
             $upload =  move_uploaded_file($photo['tmp_name'], 'photo/'. $new_file_name);
             
            if($upload){
-            $sql = "INSERT INTO users (name, email, profile_photo, password) VALUES ('$name', '$email', '$new_file_name', '$password')";
+            $sql = "INSERT INTO users (name, email, profile_photo, password) VALUES ('$name', '$email', '$new_file_name', '$hashPassword')";
             $insert = mysqli_query($connection, $sql);
             
             if($insert){
