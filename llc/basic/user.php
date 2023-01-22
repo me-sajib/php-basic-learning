@@ -2,7 +2,7 @@
 $connection = mysqli_connect("localhost", "root", "", "llc");
 
 $readSql = "SELECT * FROM users";
-$datas = mysqli_query($connection, $readSql);
+$data = mysqli_query($connection, $readSql);
 
 
 $errors = [];
@@ -21,7 +21,7 @@ $keyword = "";
 if (isset($_GET["keyword"])) {
     $keyword =  $_GET["keyword"];
     $query = "SELECT `id`, `name`, `email`, `profile_photo` FROM `users` WHERE `name` LIKE '%$keyword%' OR email LIKE '%$keyword%'";
-    $datas = mysqli_query($connection, $query);
+    $data = mysqli_query($connection, $query);
 }
 
 ?>
@@ -75,17 +75,17 @@ if (isset($_GET["keyword"])) {
             </thead>
             <tbody>
                 <?php
-                if ($datas || $datas) {
+                if ($data || $data) {
                     $count = 1;
-                    while ($data = mysqli_fetch_array($datas)) { ?>
+                    while ($user = mysqli_fetch_array($data)) { ?>
                         <tr>
                             <td><?php echo $count++; ?></td>
-                            <td> <img src="photo/<?php echo $data['profile_photo']; ?>" alt=""> </td>
-                            <td><?php echo str_replace($keyword, '<span style="color:#ff0000">' . $keyword . '</span>', $data['name']); ?></td>
-                            <td><?php echo str_replace($keyword, '<span style="color:#ff0000">' . $keyword . '</span>', $data['email']); ?></td>
+                            <td> <img src="photo/<?php echo $user['profile_photo']; ?>" alt=""> </td>
+                            <td><?php echo str_replace($keyword, '<span style="color:#ff0000">' . $keyword . '</span>', $user['name']); ?></td>
+                            <td><?php echo str_replace($keyword, '<span style="color:#ff0000">' . $keyword . '</span>', $user['email']); ?></td>
                             <td>
-                                <a href="edit.php?id=<?php echo $data['id']; ?>">Edit</a>
-                                <a href="?delete=<?php echo $data['id']; ?>" onclick="return confirm('Are you sure! want to delete?')">Delete</a>
+                                <a href="edit.php?id=<?php echo $user['id']; ?>">Edit</a>
+                                <a href="?delete=<?php echo $user['id']; ?>" onclick="return confirm('Are you sure! want to delete?')">Delete</a>
 
                             </td>
                         </tr>
