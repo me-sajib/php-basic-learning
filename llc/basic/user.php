@@ -20,8 +20,12 @@ if (isset($_GET["delete"])) {
 $keyword = "";
 if (isset($_GET["keyword"])) {
     $keyword =  $_GET["keyword"];
-    $query = "SELECT `id`, `name`, `email`, `profile_photo` FROM `users` WHERE `name` LIKE '%$keyword%' OR email LIKE '%$keyword%'";
+    $query = "SELECT `id`, `name`, `email`, `profile_photo` FROM `users` WHERE `name` LIKE '%$keyword%' OR `email` LIKE '%$keyword%'";
     $data = mysqli_query($connection, $query);
+    
+    $isData = $data->num_rows;
+    
+    
 }
 
 ?>
@@ -62,7 +66,12 @@ if (isset($_GET["keyword"])) {
         if (isset($keyword) && strlen($keyword) < 0 ) { ?> <div class="alert alert-info mt-2">You have searched <b><?php echo $keyword; ?></b></div>
         <?php
         }
+
+        if($isData < 1){ ?>
+            <div class="alert alert-danger mt-3">No user found.</div> 
+        <?php }
         ?>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -77,7 +86,7 @@ if (isset($_GET["keyword"])) {
                 <?php
                 if ($data || $data) {
                     $count = 1;
-                    while ($user = mysqli_fetch_array($data)) { ?>
+                    while ($user = mysqli_fetch_assoc($data)) { ?>
                         <tr>
                             <td><?php echo $count++; ?></td>
                             <td> <img src="photo/<?php echo $user['profile_photo']; ?>" alt=""> </td>
@@ -89,7 +98,6 @@ if (isset($_GET["keyword"])) {
 
                             </td>
                         </tr>
-
                 <?php   }
                 } ?>
             </tbody>
@@ -97,5 +105,4 @@ if (isset($_GET["keyword"])) {
     </div>
 
 </body>
-
 </html>
