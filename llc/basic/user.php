@@ -18,14 +18,12 @@ if (isset($_GET["delete"])) {
     }
 }
 $keyword = "";
+$isData = 1;
 if (isset($_GET["keyword"])) {
     $keyword =  $_GET["keyword"];
     $query = "SELECT `id`, `name`, `email`, `profile_photo` FROM `users` WHERE `name` LIKE '%$keyword%' OR `email` LIKE '%$keyword%'";
     $data = mysqli_query($connection, $query);
-    
     $isData = $data->num_rows;
-    
-    
 }
 
 ?>
@@ -48,6 +46,10 @@ if (isset($_GET["keyword"])) {
 
 <body>
     <div class="container my-5">
+        <div class="mb-5">
+            <a href="signup.php" class="btn btn-outline-info">Registration</a>
+            <a href="index.php" class="btn btn-outline-secondary">Login</a>
+        </div>
         <?php
         if (isset($errors['empty-data'])) {
             echo $errors["empty-data"];
