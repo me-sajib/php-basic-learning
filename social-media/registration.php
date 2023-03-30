@@ -6,23 +6,30 @@ include_once "./inc/header.php";
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                   <h3 class="mb-3">Registration now</h3>
+                  <?php
+                    if(isset($_GET["exits_email"])){?>
+                        <span class="alert alert-danger">
+                            <?php echo "OPPs! User already exits";?>
+                            
+                    </span> <br>
+                   <?php } ?>
                     <div class="bg-white shadow rounded">
                         <div class="row">
                             <div class="col-md-7 pe-0">
                                 <div class="form-left h-100 py-5 px-5">
-                                    <form action="" class="row g-4">
+                                    <form action="DB/registration.php" class="row g-4" method="POST">
                                             <div class="col-12">
                                                 <label>Username<span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                                                    <input type="text" class="form-control" placeholder="Enter Username">
+                                                    <input type="text" class="form-control" required name="name" placeholder="Enter Username">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <label>Email<span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                                                    <input type="text" class="form-control" placeholder="Enter Email">
+                                                    <input type="email" name="email" required class="form-control" placeholder="Enter Email">
                                                 </div>
                                             </div>
 
@@ -30,7 +37,7 @@ include_once "./inc/header.php";
                                                 <label>Password<span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                    <input type="password" class="form-control" placeholder="Enter Password">
+                                                    <input type="password" name="password" required class="form-control" placeholder="Enter Password">
                                                 </div>
                                             </div>
 
@@ -46,7 +53,7 @@ include_once "./inc/header.php";
                                             </div>
 
                                             <div class="col-12">
-                                                <button type="submit" class="btn btn-primary px-4 float-end mt-4">login</button>
+                                                <input type="submit" name="register"  class="btn btn-primary px-4 float-end mt-4" value="Registration">
                                             </div>
                                     </form>
                                 </div>

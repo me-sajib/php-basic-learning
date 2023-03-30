@@ -1,22 +1,36 @@
 <?php
 include_once "./inc/header.php";
-
+require_once "./DB/connection.php";
+session_start();
 ?>
     <div class="login-page bg-light">
         <div class="container container-center">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                   <h3 class="mb-3">Login Now</h3>
+                  <?php
+                    if(isset($_GET["registration_success"])){?>
+                        <div class="alert alert-success">
+                            <?php echo "Registration Success ! Login now";?>
+                    </div>
+                   <?php } ?>
+
+                  <?php
+                    if(isset($_GET["success_login"])){?>
+                        <div class="alert alert-info">
+                            <?php echo "YAY ! Login Success";?>
+                    </div>
+                   <?php } ?>
                     <div class="bg-white shadow rounded">
                         <div class="row">
                             <div class="col-md-7 pe-0">
                                 <div class="form-left h-100 py-5 px-5">
-                                    <form action="" class="row g-4">
+                                    <form action="DB/login.php" class="row g-4" method="POST">
                                         <div class="col-12">
                                             <label>Email<span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                                                <input type="text" class="form-control" placeholder="Enter Email">
+                                                <input type="text" class="form-control" name="email" value="<?php echo isset($_SESSION["email"]) ? $_SESSION["email"] : "" ?>" required placeholder="Enter Email">
                                             </div>
                                         </div>
 
@@ -24,7 +38,7 @@ include_once "./inc/header.php";
                                                 <label>Password<span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                    <input type="password" class="form-control" placeholder="Enter Password">
+                                                    <input type="password" class="form-control" name="password" required placeholder="Enter Password">
                                                 </div>
                                             </div>
 
@@ -40,7 +54,7 @@ include_once "./inc/header.php";
                                             </div>
 
                                             <div class="col-12">
-                                                <button type="submit" class="btn btn-primary px-4 float-end mt-4">login</button>
+                                                <input type="submit" class="btn btn-primary px-4 float-end mt-4" name="login" value="Login"/>
                                             </div>
                                     </form>
                                 </div>

@@ -7,7 +7,7 @@
     <title>Social Book</title>
     <!-- assets css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="http://localhost/php/social-media/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/php/social-media/assets/css/style.css">
 </head>
 <body>
